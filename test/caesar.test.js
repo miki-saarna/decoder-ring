@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const { caesar } = require('../src/caesar.js');
+const { caesar } = require('../src/caesar');
 
 describe('caesar', () => {
   it('should return an input with each letter shifted to the right a certain amount if encoding', () => {
