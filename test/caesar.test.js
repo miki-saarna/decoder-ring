@@ -49,6 +49,9 @@ it('should return false if the shift value is undefined, equal to 0, greater tha
     const shift = undefined;
     const expected = false
     const actual = caesar(input, shift);
-    expect(actual).to.equal(expected);
+    expect(actual).to.be.false;
+})
+it('maintains spaces and other nonalphabetical symbols', () => {
+    expect(caesar('hello universe!@#$%', 3)).to.be.equal('khoor xqlyhuvh!@#$%')
 })
 })

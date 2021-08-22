@@ -22,18 +22,15 @@ const polybiusModule = (function () {
       for (const letter of characters) {
         if (letter === ' ') result.push(' ');
       for (let i = 0; i < polybiusSquare.length; i++) {
-        for (const [ k, v ] of Object.entries(polybiusSquare[i])) { // trying using Object.keys instead?
+          for (const k of Object.keys(polybiusSquare[i])) {
           if(polybiusSquare[i][k].includes(letter)) {
           result.push(i + 1, k)
           break;
-          //result.push(k)
           } 
         }
       }  
     } 
-    return result.join('');  
     } else {
-      
       for (let i = 0; i < input.length; i += 2) {
         if (input.substr(0 + i, 1) === ' ') {
           result.push(' ')
@@ -41,19 +38,15 @@ const polybiusModule = (function () {
         }
         else {
         const arrIndex = polybiusSquare[input.substr(0 + i, 1) - 1];
-          for (const [ k, v ] of Object.entries(arrIndex)) { //try using Object.keys instead?
-            //if(Object.keys(polybiusSquare[i][k]) === input.substr(0 + i, 2)) {
-            if (input.substr(1 + i, 1) === ' ') {result.push(' ')}
+          for (const [ k, v ] of Object.entries(arrIndex)) {
             if (k === input.substr(1 + i, 1))
-              result.push(arrIndex[k])
+              result.push(v)
             }  
             }
           }
-          return result.join('');
         }
+        return result.join(''); 
       }
-      
-    
   return {
     polybius,
   };
